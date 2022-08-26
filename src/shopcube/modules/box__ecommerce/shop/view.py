@@ -455,7 +455,7 @@ def wishlist_toggle(product_barcode):
     # product checks
     product = Product.query.get(product_barcode)
     if product is None:
-        return redirect(next_url)
+        return redirect(get_safe_redirect(next_url))
 
     if "wishlist" not in session:
         session["wishlist"] = []
